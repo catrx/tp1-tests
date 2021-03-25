@@ -93,7 +93,7 @@ public class ApplicationTest {
 
         var expected = "Enzo";
 
-        Mockito.verify(studentService).getStudent(id);
+        Mockito.verify(studentService, Mockito.times(2)).getStudent(id);
 
         assertEquals(expected, studentName, "Student does not exist");
 
@@ -110,7 +110,7 @@ public class ApplicationTest {
 
         var studentName = application.getStudent(id);
 
-        Mockito.verify(studentService).getStudent(id);
+        Mockito.verify(studentService, Mockito.times(1)).getStudent(id);
 
         assertNull(studentName, "Student exist");
     }
